@@ -1,0 +1,37 @@
+import elementos.*
+import plagas.*
+
+test "barrio no bueno" {
+	var mascota1 = new Mascota(nivelSalud=100)
+	var mascota2 = new Mascota(nivelSalud=100)
+	var mascota3 = new Mascota(nivelSalud=300)
+	var barrio = new Barrios()
+	
+	barrio.agregarElemento(mascota1)
+	barrio.agregarElemento(mascota2)
+	barrio.agregarElemento(mascota3)
+	assert.notThat(barrio.esCopado())
+}
+
+test "barrio bueno"{
+	var mascota1 = new Mascota(nivelSalud=300)
+	var mascota2 = new Mascota(nivelSalud=300)
+	var mascota3 = new Mascota(nivelSalud=100)
+	var barrio = new Barrios()
+	
+	barrio.agregarElemento(mascota1)
+	barrio.agregarElemento(mascota2)
+	barrio.agregarElemento(mascota3)
+	assert.that(barrio.esCopado())
+}
+
+test "plaga mosquito"{
+	var mosquito = new Mosquito(poblacion = 12)
+	assert.equals(12,mosquito.nivelDanio())
+	assert.that(mosquito.transmiteEnfermedades())
+	var casa = new Hogar(nivelDeMugre = 20 , confort = 18)
+	assert.that(casa.esBueno())
+	mosquito.atacar(casa)
+	assert.equals(13.2,mosquito.poblacion())
+	assert.equals(33.2,casa.nivelDeMugre())
+}
