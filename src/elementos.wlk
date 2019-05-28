@@ -32,9 +32,9 @@ class Huerta {
 
 	method ataqueDePlaga(plaga) {
 		if (plaga.transmitieEnfermedades()) {
-			capacidadProduccion = (capacidadProduccion * (0.90) - 10).max(0)
+			capacidadProduccion -= (plaga.nivelDanio() * (0.10) - 10).max(0)
 		} else {
-			capacidadProduccion *= 0.90
+			capacidadProduccion -= (plaga.nivelDanio() * (0.10))
 		}
 	}
 

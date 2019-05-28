@@ -1,6 +1,7 @@
 class Plaga { //super clase
 
 	var property poblacion = 0
+	var property pesoPromedio = 8
 
 	method transmiteEnfermedades() {
 		return poblacion >= 10
@@ -15,8 +16,6 @@ class Plaga { //super clase
 
 class Cucarachas inherits Plaga { // sub clase
 
-	var property pesoPromedio = 8
-
 	method nivelDanio() {
 		return poblacion / 2
 	}
@@ -27,15 +26,13 @@ class Cucarachas inherits Plaga { // sub clase
 	}
 
 	override method atacar(elemento) {
-		super(elemento)
 		pesoPromedio += 2
+		super(elemento)
 	}
 
 }
 
 class Pulgas inherits Plaga { // sub clase
-
-	var property pesoPromedio = 8
 
 	method nivelDanio() {
 		return poblacion * 2
@@ -45,8 +42,6 @@ class Pulgas inherits Plaga { // sub clase
 
 class Garrapatas inherits Plaga { // sub clase
 
-	var property pesoPromedio = 8
-
 	method nivelDanio() {
 		return poblacion * 2
 	}
@@ -54,8 +49,6 @@ class Garrapatas inherits Plaga { // sub clase
 }
 
 class Mosquito inherits Plaga { // sub clase
-
-	var property pesoPromedio = 8
 
 	method nivelDanio() {
 		return poblacion
